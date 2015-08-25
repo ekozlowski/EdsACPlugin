@@ -1,0 +1,42 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Linos C# Plugin Template (2.9.6.0)</Name>
+    <Description>Decal Alpha 8 C# Plugin Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Linos C# Plugin Template (Alpha 8)</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="PluginTemplateAlpha8.csproj" File="PluginTemplateAlpha8.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="charStats.cs">charStats.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="chatEvents.cs">chatEvents.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ErrorLogging.cs">ErrorLogging.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="LICENSE">LICENSE</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="mainView.cs">mainView.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="PluginCore.cs">PluginCore.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="PluginSettings.cs">PluginSettings.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="worldFilter.cs">worldFilter.cs</ProjectItem>
+      <Folder Name="obj" TargetFolderName="obj">
+        <Folder Name="Debug" TargetFolderName="Debug">
+          <Folder Name="errorLogs" TargetFolderName="errorLogs" />
+        </Folder>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="SampleRegFile" TargetFolderName="SampleRegFile">
+        <ProjectItem ReplaceParameters="true" TargetFileName="testReg.reg">testReg.reg</ProjectItem>
+      </Folder>
+      <Folder Name="ViewXML" TargetFolderName="ViewXML">
+        <ProjectItem ReplaceParameters="true" TargetFileName="mainView.xml">mainView.xml</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
