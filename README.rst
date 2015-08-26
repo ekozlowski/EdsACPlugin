@@ -12,6 +12,14 @@ I was using the Alinco3 plugin, but found it to be lacking in updates.  The Viri
 require the macro to be running for things other than simple looting.  I'm sure there are ways to make the Virindi system work the way I want,
 but I also want to explore plugin authoring myself!
 
+What Does It Do?
+----------------
+
+At the moment:  Absolutely *nothing*.  This is partially because (as I'm writing this) the Turbine Asheron's Call servers are being moved to a new data center.  Hopefully the game will be up by Friday
+this week, which will allow me to do something useful and productive then!  :)
+
+Until then, I have a lot of research to do about items and IDs and how to obtain them!
+
 Credits
 -------
 
