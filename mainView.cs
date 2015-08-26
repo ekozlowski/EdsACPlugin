@@ -2,9 +2,9 @@ using Decal.Adapter;
 using Decal.Adapter.Wrappers;
 using System;
 
-namespace $safeprojectname$
+namespace EdsACPlugin
 {
-    [View("$safeprojectname$.ViewXML.mainView.xml")]
+    [View("EdsACPlugin.ViewXML.mainView.xml")]
     [WireUpControlEvents]
     public partial class PluginCore
     {

@@ -1,7 +1,7 @@
 using Decal.Adapter.Wrappers;
 using System;
 
-namespace $safeprojectname$
+namespace EdsACPlugin
 {
     public partial class PluginCore
     {

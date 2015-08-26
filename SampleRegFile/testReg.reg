@@ -1,8 +1,8 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Decal\Plugins\{$guid1$}] 
-@="$safeprojectname$" 
-"Assembly"="$safeprojectname$.dll" 
-"Object"="$safeprojectname$.PluginCore" 
-"Path"="C:\\Documents and Settings\\$username$\\My Documents\\Visual Studio 2005\\projects\\$safeprojectname$\\$safeprojectname$\\bin\\Debug\\" 
+@="EdsACPlugin" 
+"Assembly"="EdsACPlugin.dll" 
+"Object"="EdsACPlugin.PluginCore" 
+"Path"="C:\\Documents and Settings\\$username$\\My Documents\\Visual Studio 2005\\projects\\EdsACPlugin\\EdsACPlugin\\bin\\Debug\\" 
 "Surrogate"="{71A69713-6593-47EC-0002-0000000DECA1}"
