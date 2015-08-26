@@ -8,8 +8,8 @@
     <ProjectGuid>{2B0FEC0F-1C14-424D-9778-FA925B75C7A2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>$safeprojectname$</RootNamespace>
-    <AssemblyName>$safeprojectname$</AssemblyName>
+    <RootNamespace>EdsACPlugin</RootNamespace>
+    <AssemblyName>EdsACPlugin</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ViewXML\mainView.xml">
-      <CustomToolNamespace>$safeprojectname$.ViewXML</CustomToolNamespace>
+      <CustomToolNamespace>EdsACPlugin.ViewXML</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
