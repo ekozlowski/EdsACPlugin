@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace $safeprojectname$
+namespace EdsACPlugin
 {
     internal class ErrorLogging
     {

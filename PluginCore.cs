@@ -5,13 +5,13 @@ using Decal.Adapter;
 using System;
 using System.IO;
 
-namespace $safeprojectname$
+namespace EdsACPlugin
 {
     public partial class PluginCore : PluginBase
     {
         
         private static string DIR_SEP = "\\";
-        private static string PLUGIN = "$safeprojectname$";
+        private static string PLUGIN = "EdsACPlugin";
 
         private static string FILENAME_ERRORLOG = "errorlog.txt";
         private static string FILENAME_SETTINGS = "settings.xml";
@@ -71,7 +71,7 @@ namespace $safeprojectname$
                 }
                 catch(Exception ex)
                 {
-                    ErrorLogging.LogError("c:\\$safeprojectname$-errorlog.txt", ex);
+                    ErrorLogging.LogError("c:\\EdsACPlugin-errorlog.txt", ex);
                 }
                 
             }            

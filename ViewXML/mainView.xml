@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<view icon="8829" title="$safeprojectname$" width="240" height="240">
+<view icon="8829" title="EdsACPlugin" width="240" height="240">
   <control progid="DecalControls.FixedLayout" clipped="">
     <control progid="DecalControls.Notebook" name="nbkMain" left="0" top="0" width="240" height="240">
       <page label="Main">
@@ -11,7 +11,7 @@
       </page>
       <page label="About">
         <control progid="DecalControls.FixedLayout" clipped="">
-          <control progid="DecalControls.StaticText" name="AboutText1" left="20" top="20" width="200" height="80" justify="Center" fontsize="18" fontstyle="" text="$safeprojectname$ was written by $username$."/>
+          <control progid="DecalControls.StaticText" name="AboutText1" left="20" top="20" width="200" height="80" justify="Center" fontsize="18" fontstyle="" text="EdsACPlugin was written by Edward Kozlowski."/>
           <control progid="DecalControls.StaticText" name="UseAtOwnRisk" left="20" top="120" width="200" height="40" textcolor="192" justify="Center" fontsize="20" fontstyle=" bold" text="USE AT YOUR OWN RISK!"/>
         </control>
       </page>
