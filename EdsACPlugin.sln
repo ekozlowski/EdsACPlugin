@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdsACPlugin", "EdsACPlugin.csproj", "{2B0FEC0F-1C14-424D-9778-FA925B75C7A2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{624D2F59-4045-4306-9644-A30A17815C47}"
+	ProjectSection(SolutionItems) = preProject
+		README.rst = README.rst
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

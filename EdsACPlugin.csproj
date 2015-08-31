@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="charStats.cs" />
     <Compile Include="chatEvents.cs" />
+    <Compile Include="gameData.cs" />
     <Compile Include="mainView.cs" />
     <Compile Include="ErrorLogging.cs" />
     <Compile Include="PluginCore.cs" />
