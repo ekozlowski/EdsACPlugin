@@ -33,9 +33,7 @@ namespace EdsACPlugin
                 initCharStats();
                 initWorldFilter();
                 initChatEvents();
-                
                 initPath();
-                
                 //TODO: Code for startup events
             }
             catch (Exception ex)
@@ -49,7 +47,6 @@ namespace EdsACPlugin
             try
             {
                 saveSettings();
-                
                 destroyChatEvents();
                 destroyCharStats();
                 destroyWorldFilter();

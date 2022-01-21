@@ -1,0 +1,15 @@
+# Stat mod type 36872 must mean it modifies _armor_.
+SELECT * FROM ace_world.spell WHERE stat_Mod_Type=36872;
+select * from ace_world.spell WHERE name like "Major%";
+
+select * from ace_world.spell where stat_mod_type=36865 and stat_Mod_Val > 0;weenie_properties_body_part
+
+# stat_Mod_Type:
+# 36880 <- Player stat (skill)
+# 36865 <- Coord / Str / End
+# 36872 <- Armor Attributes / Banes / Impens, etc...
+# 33591300 <- Weapon Speed
+# 33591304 <- Weapon Hit % Chance
+# 33574920 <- Magic Caster % ManaC Mod
+# 33591304 <- Weapon Damage
+# 33591312 <- Void Magic Aptitude

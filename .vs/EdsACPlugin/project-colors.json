@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2b0fec0f-1c14-424d-9778-fa925b75c7a2": {
+      "ProjectGuid": "2b0fec0f-1c14-424d-9778-fa925b75c7a2",
+      "DisplayName": "EdsACPlugin",
+      "ColorIndex": 0
+    },
+    "624d2f59-4045-4306-9644-a30a17815c47": {
+      "ProjectGuid": "624d2f59-4045-4306-9644-a30a17815c47",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}
