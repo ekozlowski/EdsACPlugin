@@ -8,8 +8,9 @@ namespace EdsACPlugin
     {
         // 5 = pink
         // 4 = "gold?  Yellow?  not sure"
-        // 3 = ?
-        private int MessageColor = 3; 
+        // 3 = VERY yellow
+        // 2 = ?
+        private int MessageColor = 2; 
         private void initChatEvents()
         {
             // Initialize incoming chat message event handler
