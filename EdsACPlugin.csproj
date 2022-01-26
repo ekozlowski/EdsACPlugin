@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EdsACPlugin</RootNamespace>
     <AssemblyName>EdsACPlugin</AssemblyName>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -73,12 +73,12 @@
   <ItemGroup>
     <Compile Include="charStats.cs" />
     <Compile Include="chatEvents.cs" />
-    <Compile Include="gameData.cs" />
     <Compile Include="mainView.cs" />
     <Compile Include="ErrorLogging.cs" />
     <Compile Include="PluginCore.cs" />
     <Compile Include="PluginSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpellTable.cs" />
     <Compile Include="worldFilter.cs" />
   </ItemGroup>
   <ItemGroup>

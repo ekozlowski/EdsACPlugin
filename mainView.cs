@@ -24,7 +24,14 @@ namespace EdsACPlugin
             {
                 if (this.TestEdit.Text != null)
                 {
-                    WriteToChat(this.TestEdit.Text);
+                    wtc($"Looking up {this.TestEdit.Text}");
+                    var spellIDs = spells.getByString(this.TestEdit.Text);
+                    wtc($"Found {spellIDs.Count} spells");
+                    foreach (var spell in spellIDs)
+                    {
+                        wtc($"{spell}");
+                        wtc($"{spells.getByID(spell)}");
+                    }
                 }
                 else
                 {
