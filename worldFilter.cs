@@ -16,58 +16,61 @@ namespace EdsACPlugin
             //////////////////////////////////////////////////////////////
 
             // Initialize the ResetTrade event handler
-            //Core.WorldFilter.ResetTrade += new EventHandler<ResetTradeEventArgs>(WorldFilter_ResetTrade);
+            Core.WorldFilter.ResetTrade += new EventHandler<ResetTradeEventArgs>(WorldFilter_ResetTrade);
 
             // Initialize the ReleaseObject event handler
-            //Core.WorldFilter.ReleaseObject += new EventHandler<ReleaseObjectEventArgs>(WorldFilter_ReleaseObject);
+            Core.WorldFilter.ReleaseObject += new EventHandler<ReleaseObjectEventArgs>(WorldFilter_ReleaseObject);
 
             // Initialize the ReleaseDone event handler
-            //Core.WorldFilter.ReleaseDone += new EventHandler(WorldFilter_ReleaseDone);
+            Core.WorldFilter.ReleaseDone += new EventHandler(WorldFilter_ReleaseDone);
 
             // Initialize the MoveObject event handler
-            //Core.WorldFilter.MoveObject += new EventHandler<MoveObjectEventArgs>(WorldFilter_MoveObject);
+            Core.WorldFilter.MoveObject += new EventHandler<MoveObjectEventArgs>(WorldFilter_MoveObject);
 
             // Initialize the FailToCompleteTrade event handler
-            //Core.WorldFilter.FailToCompleteTrade += new EventHandler(WorldFilter_FailToCompleteTrade);
+            Core.WorldFilter.FailToCompleteTrade += new EventHandler(WorldFilter_FailToCompleteTrade);
 
             // Initialize the FailToAddTradeItem event handler
-            //Core.WorldFilter.FailToAddTradeItem += new EventHandler<FailToAddTradeItemEventArgs>(WorldFilter_FailToAddTradeItem);
+            Core.WorldFilter.FailToAddTradeItem += new EventHandler<FailToAddTradeItemEventArgs>(WorldFilter_FailToAddTradeItem);
 
             // Initialize the EnterTrade event handler
-            //Core.WorldFilter.EnterTrade += new EventHandler<EnterTradeEventArgs>(WorldFilter_EnterTrade);
+            Core.WorldFilter.EnterTrade += new EventHandler<EnterTradeEventArgs>(WorldFilter_EnterTrade);
 
             // Initialize the EndTrade event handler
-            //Core.WorldFilter.EndTrade += new EventHandler<EndTradeEventArgs>(WorldFilter_EndTrade);
+            Core.WorldFilter.EndTrade += new EventHandler<EndTradeEventArgs>(WorldFilter_EndTrade);
 
             // Initialize the DeclineTrade event handler
-            //Core.WorldFilter.DeclineTrade += new EventHandler<DeclineTradeEventArgs>(WorldFilter_DeclineTrade);
+            Core.WorldFilter.DeclineTrade += new EventHandler<DeclineTradeEventArgs>(WorldFilter_DeclineTrade);
 
             // Initialize the CreateObject event handler
             Core.WorldFilter.CreateObject += new EventHandler<CreateObjectEventArgs>(WorldFilter_CreateObject);
 
             // Initialize the ChangeObject event handler
-            //Core.WorldFilter.ChangeObject += new EventHandler<ChangeObjectEventArgs>(WorldFilter_ChangeObject);
+            Core.WorldFilter.ChangeObject += new EventHandler<ChangeObjectEventArgs>(WorldFilter_ChangeObject);
 
             // Initialize the ApproachVendor event handler
-            //Core.WorldFilter.ApproachVendor += new EventHandler<ApproachVendorEventArgs>(WorldFilter_ApproachVendor);
+            Core.WorldFilter.ApproachVendor += new EventHandler<ApproachVendorEventArgs>(WorldFilter_ApproachVendor);
 
             // Initialize the AddTradeItem event handler
-            //Core.WorldFilter.AddTradeItem += new EventHandler<AddTradeItemEventArgs>(WorldFilter_AddTradeItem);
+            Core.WorldFilter.AddTradeItem += new EventHandler<AddTradeItemEventArgs>(WorldFilter_AddTradeItem);
 
             // Initialize the AcceptTrade event handler
-            //Core.WorldFilter.AcceptTrade += new EventHandler<AcceptTradeEventArgs>(WorldFilter_AcceptTrade);
+            Core.WorldFilter.AcceptTrade += new EventHandler<AcceptTradeEventArgs>(WorldFilter_AcceptTrade);
         }
 
         void WorldFilter_AcceptTrade(object sender, AcceptTradeEventArgs e)
         {
+            wtc("WorldFilter_AcceptTrade");
         }
 
         void WorldFilter_AddTradeItem(object sender, AddTradeItemEventArgs e)
         {
+            wtc("WorldFilter_AddTradeItem");
         }
 
         void WorldFilter_ApproachVendor(object sender, ApproachVendorEventArgs e)
         {
+            wtc("WorldFilter_ApproachVendor");
         }
 
         private void pointArrowAt(int id)
@@ -108,7 +111,7 @@ namespace EdsACPlugin
                 {
                     if (o.Name.IndexOf("Golem") != -1)
                     {
-                        wtc($"Found {o.Name}");
+                        wtc($"Found {o.Name} - Coords: ({o.Coordinates()})");
                         // bark
                         bark();
                         // point
@@ -163,92 +166,104 @@ namespace EdsACPlugin
 
         void WorldFilter_ChangeObject(object sender, ChangeObjectEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_CreateObject(object sender, CreateObjectEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
             scanIt(e.New);
         }
 
         void WorldFilter_DeclineTrade(object sender, DeclineTradeEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_EndTrade(object sender, EndTradeEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_EnterTrade(object sender, EnterTradeEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_FailToAddTradeItem(object sender, FailToAddTradeItemEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_FailToCompleteTrade(object sender, EventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_MoveObject(object sender, MoveObjectEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_ReleaseDone(object sender, EventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_ReleaseObject(object sender, ReleaseObjectEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_ResetTrade(object sender, ResetTradeEventArgs e)
         {
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         private void destroyWorldFilter()
         {
+
             // UnInitialize the ResetTrade event handler
-            //Core.WorldFilter.ResetTrade -= new EventHandler<ResetTradeEventArgs>(WorldFilter_ResetTrade);
+            Core.WorldFilter.ResetTrade -= new EventHandler<ResetTradeEventArgs>(WorldFilter_ResetTrade);
 
             // UnInitialize the ReleaseObject event handler
-            //Core.WorldFilter.ReleaseObject -= new EventHandler<ReleaseObjectEventArgs>(WorldFilter_ReleaseObject);
+            Core.WorldFilter.ReleaseObject -= new EventHandler<ReleaseObjectEventArgs>(WorldFilter_ReleaseObject);
 
             // UnInitialize the ReleaseDone event handler
-            //Core.WorldFilter.ReleaseDone -= new EventHandler(WorldFilter_ReleaseDone);
+            Core.WorldFilter.ReleaseDone -= new EventHandler(WorldFilter_ReleaseDone);
 
             // UnInitialize the MoveObject event handler
-            //Core.WorldFilter.MoveObject -= new EventHandler<MoveObjectEventArgs>(WorldFilter_MoveObject);
+            Core.WorldFilter.MoveObject -= new EventHandler<MoveObjectEventArgs>(WorldFilter_MoveObject);
 
             // UnInitialize the FailToCompleteTrade event handler
-            //Core.WorldFilter.FailToCompleteTrade -= new EventHandler(WorldFilter_FailToCompleteTrade);
+            Core.WorldFilter.FailToCompleteTrade -= new EventHandler(WorldFilter_FailToCompleteTrade);
 
             // UnInitialize the FailToAddTradeItem event handler
-            //Core.WorldFilter.FailToAddTradeItem -= new EventHandler<FailToAddTradeItemEventArgs>(WorldFilter_FailToAddTradeItem);
-            
+            Core.WorldFilter.FailToAddTradeItem -= new EventHandler<FailToAddTradeItemEventArgs>(WorldFilter_FailToAddTradeItem);
+
             // UnInitialize the EnterTrade event handler
-            //Core.WorldFilter.EnterTrade -= new EventHandler<EnterTradeEventArgs>(WorldFilter_EnterTrade);
-            
+            Core.WorldFilter.EnterTrade -= new EventHandler<EnterTradeEventArgs>(WorldFilter_EnterTrade);
+
             // UnInitialize the EndTrade event handler
-            //Core.WorldFilter.EndTrade -= new EventHandler<EndTradeEventArgs>(WorldFilter_EndTrade);
+            Core.WorldFilter.EndTrade -= new EventHandler<EndTradeEventArgs>(WorldFilter_EndTrade);
 
             // UnInitialize the DeclineTrade event handler
-            //Core.WorldFilter.DeclineTrade -= new EventHandler<DeclineTradeEventArgs>(WorldFilter_DeclineTrade);
+            Core.WorldFilter.DeclineTrade -= new EventHandler<DeclineTradeEventArgs>(WorldFilter_DeclineTrade);
 
             // UnInitialize the CreateObject event handler
             Core.WorldFilter.CreateObject -= new EventHandler<CreateObjectEventArgs>(WorldFilter_CreateObject);
 
             // UnInitialize the ChangeObject event handler
-            //Core.WorldFilter.ChangeObject -= new EventHandler<ChangeObjectEventArgs>(WorldFilter_ChangeObject);
+            Core.WorldFilter.ChangeObject -= new EventHandler<ChangeObjectEventArgs>(WorldFilter_ChangeObject);
 
             // UnInitialize the ApproachVendor event handler
-            //Core.WorldFilter.ApproachVendor -= new EventHandler<ApproachVendorEventArgs>(WorldFilter_ApproachVendor);
+            Core.WorldFilter.ApproachVendor -= new EventHandler<ApproachVendorEventArgs>(WorldFilter_ApproachVendor);
 
             // UnInitialize the AddTradeItem event handler
-            //Core.WorldFilter.AddTradeItem -= new EventHandler<AddTradeItemEventArgs>(WorldFilter_AddTradeItem);
+            Core.WorldFilter.AddTradeItem -= new EventHandler<AddTradeItemEventArgs>(WorldFilter_AddTradeItem);
 
             // UnInitialize the AcceptTrade event handler
-            //Core.WorldFilter.AcceptTrade -= new EventHandler<AcceptTradeEventArgs>(WorldFilter_AcceptTrade);
+            Core.WorldFilter.AcceptTrade -= new EventHandler<AcceptTradeEventArgs>(WorldFilter_AcceptTrade);
         }
     }
 }

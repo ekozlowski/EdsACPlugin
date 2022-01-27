@@ -6,11 +6,17 @@ namespace EdsACPlugin
 {
     public partial class PluginCore
     {
-        // 5 = pink
+        // 10 = Red-pink?  MOAR red pink?
+        // 9 = Red-pink
+        // 8 = Reddish-pink
+        // 7 = BLUE
+        // 6 = RED
+        // 5 = pink / purplish?
         // 4 = "gold?  Yellow?  not sure"
         // 3 = VERY yellow
-        // 2 = ?
-        private int MessageColor = 2; 
+        // 2 = WHITE
+        // 1 = GREEN
+        private int MessageColor = 3; 
         private void initChatEvents()
         {
             // Initialize incoming chat message event handler
@@ -22,15 +28,11 @@ namespace EdsACPlugin
 
         void Core_CommandLineText(object sender, Decal.Adapter.ChatParserInterceptEventArgs e)
         {
-            wtc("Core_CommandLineText");
-            wtc(e.ToString());
             //TODO: outgoing chat handling code or command handling
         }
 
         void Core_ChatBoxMessage(object sender, Decal.Adapter.ChatTextInterceptEventArgs e)
         {
-            wtc("Core_ChatBoxMessage");
-            wtc(e.ToString());
             //TODO: incoming chat handling code
         }
         private void destroyChatEvents()
@@ -48,7 +50,7 @@ namespace EdsACPlugin
         {
             try
             {
-                this.Host.Actions.AddChatText(message, MessageColor);
+                Host.Actions.AddChatText(message, MessageColor);
             }
             catch (Exception ex)
             {
