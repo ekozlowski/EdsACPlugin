@@ -1,6 +1,7 @@
 using Decal.Adapter.Wrappers;
 using Decal.Interop.D3DService;
 using System;
+using System.Collections.Generic;
 using System.Media;
 
 namespace EdsACPlugin
@@ -76,6 +77,7 @@ namespace EdsACPlugin
             wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
+        
         private void pointArrowAt(int id)
         {
             try
@@ -103,63 +105,82 @@ namespace EdsACPlugin
             }
         }
 
+        private void scanMonster(WorldObject monster)
+        {
+            return;  // DISABLE for now.
+            if(monster.Name.IndexOf("Golem") != -1)
+            {
+                wtc($"Found {o.Name} - Coords: ({o.Coordinates()})");
+                // bark
+                bark();
+                // point
+                pointArrowAt(o.Id);
+            }
+        }
+
+        private void scanItem(WorldObject item)
+        {
+            return;  // DISABLE for now.
+        }
+
+        private void scanCorpse(WorldObject corpse)
+        {
+            if(corpse.Container != 0)
+            {
+                wtc($"Alinco says {corpse.Name} with ID: {corpse.Id} hasn't been opened.");
+            } else
+            {
+                wtc($"Alinco says {corpse.Name} with ID: {corpse.Id} has already been opened...");
+            }
+        }
+
+        private Dictionary<int, WorldObject> KnownWOs = new Dictionary<int, WorldObject>();
+
+        private void removeFromDict(int id)
+        {
+            if (KnownWOs.ContainsKey(id))
+            {
+                KnownWOs.Remove(id);
+                wtc($"Removed {id} from KnownWOs");
+            } else
+            {
+                wtc($"Request to remove {id}, and {id} not found in KnownWOs.");
+            }
+        }
+
+        private void addToDict(int id, WorldObject wo)
+        {
+            if (!KnownWOs.ContainsKey(id))
+            {
+                KnownWOs.Add(id, wo);
+                wtc($"Added {wo.Name} - {id} to KnownWOs - Now {KnownWOs.Count} known.");
+            }
+        }
+
         private void scanIt(WorldObject o)
         {
+            // TODO:
+            // Set these into a "known" object container...
+            // PURGE THEM with the ReleaseObject event.
+            if
             try
             {
-                // For now, detect if this is a mob.  If it's any kind of Golem anything, bark, and point
-                // an arrow at it.
-                // 
-                if (o.ObjectClass == ObjectClass.Monster)
-                {
-                    if (o.Name.IndexOf("Golem") != -1)
-                    {
-                        wtc($"Found {o.Name} - Coords: ({o.Coordinates()})");
-                        // bark
-                        bark();
-                        // point
-                        pointArrowAt(o.Id);
-                    }
+                switch (o.ObjectClass) {
+                    case ObjectClass.Monster:
+                        scanMonster(o);
+                        break;
+                    case (ObjectClass.Armor):
+                    case (ObjectClass.Clothing):
+                    case (ObjectClass.Jewelry):
+                    case (ObjectClass.MeleeWeapon):
+                    case (ObjectClass.MissileWeapon):
+                    case (ObjectClass.WandStaffOrb):
+                        scanItem(o);
+                        break;
+                    case (ObjectClass.Corpse):
+                        scanCorpse(o);
+                        break;
                 }
-
-                /*  hide all this...
-                 *  
-                WriteToChat($"I see: {o.Name} - Id: {o.Id}");
-                WriteToChat($"This item is type: {o.Type}");  // <-- TYPE is the WeenieId
-                if (o.Name.IndexOf("Scroll") != -1)
-                {
-                    WriteToChat($"Scroll detected - {o.Name} - Attempting to loot it.");
-                    WriteToChat($"Scroll is in container: {o.Container}");
-                    shouldLoot.Add(o);
-                }
-
-                bool isWand = o.ObjectClass == ObjectClass.WandStaffOrb;
-                bool isArmor = o.ObjectClass == ObjectClass.Armor;
-                bool isCloting = o.ObjectClass == ObjectClass.Clothing;
-                if (isArmor | isCloting)
-                {
-                    handleArmorDisplay(o);
-                }
-                if (isWand)
-                {
-                    handleWandDisplay(o);
-                }
-                WriteToChat($"Is this a wand?:   {isWand}");
-                WriteToChat($"Is this Armor?:    {isArmor}");
-                WriteToChat($"Is this Clothing?: {isCloting}");
-
-                detectedObjects.Contains(o.Id);
-                WriteToChat($"Have I seen this before? {detectedObjects.Contains(o.Id)}");
-
-                if (detectedObjects.Contains(o.Id))
-                {
-                    // do nothing
-                }
-                else
-                {
-                    detectedObjects.Add(o.Id, o);
-                }
-                */
             }
             catch (Exception ex)
             {
@@ -171,6 +192,7 @@ namespace EdsACPlugin
         {
             WorldObject wo = e.Changed;
             wtc($"{wo.Name} triggered WorldFilter_ChangeObject");
+            scanIt(wo);
         }
 
         void WorldFilter_CreateObject(object sender, CreateObjectEventArgs e)
@@ -209,9 +231,10 @@ namespace EdsACPlugin
         {
             // If this is a Monster, or Player... don't echo _anything_.
             WorldObject wo = e.Moved;
-            if (wo.Type != (int)ObjectClass.Monster && wo.Type != (int)ObjectClass.Player)
+            if (wo.ObjectClass != ObjectClass.Monster && wo.ObjectClass != ObjectClass.Player)
             {
                 wtc($"{wo.Name} fired WorldFilter_MoveObject");
+                wtc($"{wo.Type} is type of {wo.Name}");
             }
         }
 
@@ -224,6 +247,7 @@ namespace EdsACPlugin
         {
             WorldObject wo = e.Released;
             wtc($"{wo.Name} triggered WorldFilter_ReleaseObject");
+            removeFromDict(wo.Id);
         }
 
         void WorldFilter_ResetTrade(object sender, ResetTradeEventArgs e)
