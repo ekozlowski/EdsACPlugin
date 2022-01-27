@@ -60,17 +60,20 @@ namespace EdsACPlugin
 
         void WorldFilter_AcceptTrade(object sender, AcceptTradeEventArgs e)
         {
-            wtc("WorldFilter_AcceptTrade");
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_AddTradeItem(object sender, AddTradeItemEventArgs e)
         {
-            wtc("WorldFilter_AddTradeItem");
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_ApproachVendor(object sender, ApproachVendorEventArgs e)
         {
-            wtc("WorldFilter_ApproachVendor");
+            Vendor vendor = e.Vendor;
+            // The vendor obj has neat attributes about their buy and sell rates.
+            wtc($"{vendor} triggered WorldFilter_ApproachVendor.");
+            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         private void pointArrowAt(int id)
@@ -166,13 +169,15 @@ namespace EdsACPlugin
 
         void WorldFilter_ChangeObject(object sender, ChangeObjectEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WorldObject wo = e.Changed;
+            wtc($"{wo.Name} triggered WorldFilter_ChangeObject");
         }
 
         void WorldFilter_CreateObject(object sender, CreateObjectEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
-            scanIt(e.New);
+            WorldObject wo = e.New;
+            wtc($"{wo.Name} triggered WorldFilter_CreateObject");
+            scanIt(wo);
         }
 
         void WorldFilter_DeclineTrade(object sender, DeclineTradeEventArgs e)
@@ -202,17 +207,23 @@ namespace EdsACPlugin
 
         void WorldFilter_MoveObject(object sender, MoveObjectEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            // If this is a Monster, or Player... don't echo _anything_.
+            WorldObject wo = e.Moved;
+            if (wo.Type != (int)ObjectClass.Monster && wo.Type != (int)ObjectClass.Player)
+            {
+                wtc($"{wo.Name} fired WorldFilter_MoveObject");
+            }
         }
 
         void WorldFilter_ReleaseDone(object sender, EventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            wtc($"WorldFilter_ReleaseDone - e is: {e}");
         }
 
         void WorldFilter_ReleaseObject(object sender, ReleaseObjectEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WorldObject wo = e.Released;
+            wtc($"{wo.Name} triggered WorldFilter_ReleaseObject");
         }
 
         void WorldFilter_ResetTrade(object sender, ResetTradeEventArgs e)
