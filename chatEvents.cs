@@ -41,11 +41,6 @@ namespace EdsACPlugin
             Core.CommandLineText -= new EventHandler<Decal.Adapter.ChatParserInterceptEventArgs>(Core_CommandLineText);
         }
 
-        private void wtc(string message)
-        {
-            WriteToChat(message);
-        }
-
         private void WriteToChat(string message)
         {
             try

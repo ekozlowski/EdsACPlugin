@@ -61,20 +61,20 @@ namespace EdsACPlugin
 
         void WorldFilter_AcceptTrade(object sender, AcceptTradeEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_AddTradeItem(object sender, AddTradeItemEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_ApproachVendor(object sender, ApproachVendorEventArgs e)
         {
             Vendor vendor = e.Vendor;
             // The vendor obj has neat attributes about their buy and sell rates.
-            wtc($"{vendor} triggered WorldFilter_ApproachVendor.");
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{vendor} triggered WorldFilter_ApproachVendor.");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         
@@ -110,11 +110,11 @@ namespace EdsACPlugin
             return;  // DISABLE for now.
             if(monster.Name.IndexOf("Golem") != -1)
             {
-                wtc($"Found {o.Name} - Coords: ({o.Coordinates()})");
+                WriteToChat($"Found {monster.Name} - Coords: ({monster.Coordinates()})");
                 // bark
                 bark();
                 // point
-                pointArrowAt(o.Id);
+                pointArrowAt(monster.Id);
             }
         }
 
@@ -127,10 +127,10 @@ namespace EdsACPlugin
         {
             if(corpse.Container != 0)
             {
-                wtc($"Alinco says {corpse.Name} with ID: {corpse.Id} hasn't been opened.");
+                WriteToChat($"Alinco says {corpse.Name} with ID: {corpse.Id} hasn't been opened.");
             } else
             {
-                wtc($"Alinco says {corpse.Name} with ID: {corpse.Id} has already been opened...");
+                WriteToChat($"Alinco says {corpse.Name} with ID: {corpse.Id} has already been opened...");
             }
         }
 
@@ -141,10 +141,10 @@ namespace EdsACPlugin
             if (KnownWOs.ContainsKey(id))
             {
                 KnownWOs.Remove(id);
-                wtc($"Removed {id} from KnownWOs");
+                WriteToChat($"Removed {id} from KnownWOs");
             } else
             {
-                wtc($"Request to remove {id}, and {id} not found in KnownWOs.");
+                WriteToChat($"Request to remove {id}, and {id} not found in KnownWOs.");
             }
         }
 
@@ -153,7 +153,7 @@ namespace EdsACPlugin
             if (!KnownWOs.ContainsKey(id))
             {
                 KnownWOs.Add(id, wo);
-                wtc($"Added {wo.Name} - {id} to KnownWOs - Now {KnownWOs.Count} known.");
+                WriteToChat($"Added {wo.Name} - {id} to KnownWOs - Now {KnownWOs.Count} known.");
             }
         }
 
@@ -162,7 +162,6 @@ namespace EdsACPlugin
             // TODO:
             // Set these into a "known" object container...
             // PURGE THEM with the ReleaseObject event.
-            if
             try
             {
                 switch (o.ObjectClass) {
@@ -191,40 +190,40 @@ namespace EdsACPlugin
         void WorldFilter_ChangeObject(object sender, ChangeObjectEventArgs e)
         {
             WorldObject wo = e.Changed;
-            wtc($"{wo.Name} triggered WorldFilter_ChangeObject");
+            WriteToChat($"{wo.Name} triggered WorldFilter_ChangeObject");
             scanIt(wo);
         }
 
         void WorldFilter_CreateObject(object sender, CreateObjectEventArgs e)
         {
             WorldObject wo = e.New;
-            wtc($"{wo.Name} triggered WorldFilter_CreateObject");
+            WriteToChat($"{wo.Name} triggered WorldFilter_CreateObject");
             scanIt(wo);
         }
 
         void WorldFilter_DeclineTrade(object sender, DeclineTradeEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_EndTrade(object sender, EndTradeEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_EnterTrade(object sender, EnterTradeEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_FailToAddTradeItem(object sender, FailToAddTradeItemEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_FailToCompleteTrade(object sender, EventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         void WorldFilter_MoveObject(object sender, MoveObjectEventArgs e)
@@ -233,26 +232,26 @@ namespace EdsACPlugin
             WorldObject wo = e.Moved;
             if (wo.ObjectClass != ObjectClass.Monster && wo.ObjectClass != ObjectClass.Player)
             {
-                wtc($"{wo.Name} fired WorldFilter_MoveObject");
-                wtc($"{wo.Type} is type of {wo.Name}");
+                WriteToChat($"{wo.Name} fired WorldFilter_MoveObject");
+                WriteToChat($"{wo.Type} is type of {wo.Name}");
             }
         }
 
         void WorldFilter_ReleaseDone(object sender, EventArgs e)
         {
-            wtc($"WorldFilter_ReleaseDone - e is: {e}");
+            WriteToChat($"WorldFilter_ReleaseDone - e is: {e}");
         }
 
         void WorldFilter_ReleaseObject(object sender, ReleaseObjectEventArgs e)
         {
             WorldObject wo = e.Released;
-            wtc($"{wo.Name} triggered WorldFilter_ReleaseObject");
+            WriteToChat($"{wo.Name} triggered WorldFilter_ReleaseObject");
             removeFromDict(wo.Id);
         }
 
         void WorldFilter_ResetTrade(object sender, ResetTradeEventArgs e)
         {
-            wtc($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            WriteToChat($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
         }
 
         private void destroyWorldFilter()

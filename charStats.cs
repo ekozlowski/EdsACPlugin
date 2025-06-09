@@ -133,19 +133,19 @@ namespace EdsACPlugin
 
         void CharacterFilter_ChangeEnchantments(object sender, ChangeEnchantmentsEventArgs e)
         {
-            wtc("CF_ChangeEnchantments");
+            WriteToChat("CF_ChangeEnchantments");
             // I bet I can do this:
             //
             int spellIdChanging = e.Enchantment.SpellId;
-            wtc("e.Type: " + e.Type.ToString());
-            wtc("e.Enchantment: " + e.Enchantment.ToString());
+            WriteToChat("e.Type: " + e.Type.ToString());
+            WriteToChat("e.Enchantment: " + e.Enchantment.ToString());
             try
             {
 
-                wtc($"Looked up spell: {spells.getByID(e.Enchantment.SpellId)}");
+                WriteToChat($"Looked up spell: {spells.getByID(e.Enchantment.SpellId)}");
             } catch (Exception ex)
             {
-                wtc(ex.Message);
+                WriteToChat(ex.Message);
             }
         }
 
@@ -177,14 +177,14 @@ namespace EdsACPlugin
                         int hours = (int)Math.Floor(ageInSeconds / (60.0 * 60.0));
                         int minutes = (int)Math.Floor(ageInSeconds / 60.0) - (60 * hours);
                         int seconds = ageInSeconds - (60 * minutes) - (60 * 60 * hours);
-                        wtc($"You have played for {hours} hour(s) {minutes} minutes {seconds} seconds.");
+                        WriteToChat($"You have played for {hours} hour(s) {minutes} minutes {seconds} seconds.");
                     }
                 }
             } else
             {
-                wtc("CF_ChangePlayer");
-                wtc("e.Type: " + e.Type.ToString());
-                wtc("e.Stat: " + e.Stat.ToString());
+                WriteToChat("CF_ChangePlayer");
+                WriteToChat("e.Type: " + e.Type.ToString());
+                WriteToChat("e.Stat: " + e.Stat.ToString());
             }
         }
 

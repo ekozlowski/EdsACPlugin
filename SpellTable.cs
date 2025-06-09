@@ -14,7 +14,7 @@ namespace EdsACPlugin
         public static Dictionary<int, string> byID = new Dictionary<int, string>();
 
         public Spells() { 
-            var path = "C:/Users/ekozl/plugins/EdsACPlugin/spells.csv";
+            var path = "C:/Users/ekozl/source/repos/ekozlowski/EdsACPlugin/spells.csv";
             var csvRows = System.IO.File.ReadAllLines(path, Encoding.Default);
             int index = 0;
             foreach (var row in csvRows)

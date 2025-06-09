@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EdsACPlugin</RootNamespace>
     <AssemblyName>EdsACPlugin</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Decal.Adapter">
-      <HintPath>..\..\..\..\Program Files (x86)\Decal 3.0\Decal.Adapter.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Decal 3.0\Decal.Adapter.dll</HintPath>
     </Reference>
     <Reference Include="Decal.Interop.Core, Version=2.9.7.5, Culture=neutral, PublicKeyToken=481f17d392f1fb65, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

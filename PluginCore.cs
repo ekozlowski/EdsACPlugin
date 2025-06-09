@@ -13,7 +13,7 @@ namespace EdsACPlugin
     {
         // FEELING_CHEEKY enables all the "oddities" in the plugin... like displaying your character's playtime
         // every time it receives the event... just fun "odd" things....
-        private static bool FEELING_CHEEKY = false;  
+        private static bool FEELING_CHEEKY = true;  
         private static Spells spells;
         private static string DIR_SEP = "\\";
         private static string PLUGIN = "EdsACPlugin";
